@@ -83,5 +83,31 @@ public class HandlerGameCitiesTest {
         Character result = instance.getFirstChar("Краснодар");
         assertNotEquals(expResult, result);
     }
+    
+    @Test
+    public void testGetFirstCharExceptionEmptyCity() throws Exception {
+        HandlerGameCities instance = new HandlerGameCities();
+        boolean fladEx = false;
+        try {
+            Character result = instance.getFirstChar("");
+        } catch (Exception e) {
+            assertEquals(e.getMessage(), "Не удалось извлечь первую букву слова");
+            fladEx = true;
+        }
+        assertTrue(fladEx);
+    }
+
+    @Test
+    public void testGetFirstCharExceptionNullCity() throws Exception {
+        HandlerGameCities instance = new HandlerGameCities();
+        boolean fladEx = false;
+        try {
+            Character result = instance.getFirstChar(null);
+        } catch (Exception e) {
+            assertEquals(e.getMessage(), "Не удалось извлечь первую букву слова");
+            fladEx = true;
+        }
+        assertTrue(fladEx);
+    }
 
 }

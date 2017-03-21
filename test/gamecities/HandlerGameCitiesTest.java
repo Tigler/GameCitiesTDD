@@ -67,5 +67,21 @@ public class HandlerGameCitiesTest {
         }
         assertTrue(flagEx);
     }
+    
+    @Test
+    public void testGetFirstCharTrueCheck() throws Exception {
+        HandlerGameCities instance = new HandlerGameCities();
+        Character expResult = 'К';
+        Character result = instance.getFirstChar("Краснодар");
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testGetFirstCharFalseCheck() throws Exception {
+        HandlerGameCities instance = new HandlerGameCities();
+        Character expResult = 'Ц';
+        Character result = instance.getFirstChar("Краснодар");
+        assertNotEquals(expResult, result);
+    }
 
 }

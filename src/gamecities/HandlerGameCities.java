@@ -37,5 +37,10 @@ public class HandlerGameCities {
            throw new IOException("Не удалось получить список городов");
         }
     }
+    
+    public char getFirstChar(String city){
+        char firstChar = 0;
+        return firstChar;
+    }
 
 }

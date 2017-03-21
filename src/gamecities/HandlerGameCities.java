@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -17,9 +18,12 @@ import java.util.ArrayList;
 public class HandlerGameCities {
 
     private ArrayList<String> cities;
+    private ArrayList<String> activeCities;
+    private String prevCity;
 
     public HandlerGameCities() {
         cities = new ArrayList<>();
+        activeCities = new ArrayList<>();
     }
 
     public ArrayList<String> getCities() {
@@ -66,8 +70,12 @@ public class HandlerGameCities {
     }
 
     public String getRandomCity() {
-        String randCity = null;
-        return randCity;
+        Random r = new Random(System.currentTimeMillis());
+        int idx = r.nextInt(cities.size());
+        activeCities.add(cities.get(idx));
+        prevCity = cities.get(idx);
+        return cities.get(idx);
+
     }
 
 }

@@ -113,7 +113,7 @@ public class HandlerGameCitiesTest {
     @Test
     public void testGetLastCharTrueCheck() throws Exception {
         HandlerGameCities instance = new HandlerGameCities();
-        Character expResult = 'A'; //если маленькая буква вернут все равно большую, чтобы сравнивать 
+        Character expResult = 'А'; //если маленькая буква вернут все равно большую, чтобы сравнивать 
         Character result = instance.getLastChar("Москва");
         assertEquals(expResult, result);
     }
@@ -123,7 +123,7 @@ public class HandlerGameCitiesTest {
         HandlerGameCities instance = new HandlerGameCities();
         Character expResult = 'Е';
         Character result = instance.getLastChar("Москва");
-        assertEquals(expResult, result);
+        assertNotEquals(expResult, result);
     }
 
     @Test
@@ -148,8 +148,6 @@ public class HandlerGameCitiesTest {
     
     @Test
     public void testGetLastCharExceptionEmptyCity() throws Exception {
-        System.out.println("getLastChar");
-        String city = "";
         HandlerGameCities instance = new HandlerGameCities();
         boolean fladEx = false;
         try {
@@ -163,8 +161,6 @@ public class HandlerGameCitiesTest {
     
     @Test
     public void testGetLastCharExceptionNullCity() throws Exception {
-        System.out.println("getLastChar");
-        String city = "";
         HandlerGameCities instance = new HandlerGameCities();
         boolean fladEx = false;
         try {

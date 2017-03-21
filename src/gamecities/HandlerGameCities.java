@@ -49,9 +49,20 @@ public class HandlerGameCities {
     }
     
      public char getLastChar(String city) throws Exception {
-        char firstChar =0;
-        
-        return firstChar;
+        char last;
+        try {
+            int pos = city.length() - 1;
+            char lastChar = city.toUpperCase().charAt(pos);
+            if (city.toUpperCase().charAt(pos) == 'Й') {
+                return 'И';
+            } else if (lastChar == 'Ь' || lastChar == 'Ы' || lastChar == 'Ъ') {
+                pos--;
+            }
+            last = city.toUpperCase().charAt(pos);
+        } catch (Exception у) {
+            throw new Exception("Не удалось извлечь последнюю букву слова");
+        }
+        return last;
     }
 
 }

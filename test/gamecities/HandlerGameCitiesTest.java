@@ -67,7 +67,7 @@ public class HandlerGameCitiesTest {
         }
         assertTrue(flagEx);
     }
-    
+
     @Test
     public void testGetFirstCharTrueCheck() throws Exception {
         HandlerGameCities instance = new HandlerGameCities();
@@ -75,7 +75,7 @@ public class HandlerGameCitiesTest {
         Character result = instance.getFirstChar("Краснодар");
         assertEquals(expResult, result);
     }
-    
+
     @Test
     public void testGetFirstCharFalseCheck() throws Exception {
         HandlerGameCities instance = new HandlerGameCities();
@@ -83,7 +83,7 @@ public class HandlerGameCitiesTest {
         Character result = instance.getFirstChar("Краснодар");
         assertNotEquals(expResult, result);
     }
-    
+
     @Test
     public void testGetFirstCharExceptionEmptyCity() throws Exception {
         HandlerGameCities instance = new HandlerGameCities();
@@ -109,7 +109,7 @@ public class HandlerGameCitiesTest {
         }
         assertTrue(fladEx);
     }
-    
+
     @Test
     public void testGetLastCharTrueCheck() throws Exception {
         HandlerGameCities instance = new HandlerGameCities();
@@ -117,12 +117,32 @@ public class HandlerGameCitiesTest {
         Character result = instance.getLastChar("Москва");
         assertEquals(expResult, result);
     }
-    
+
     @Test
     public void testGetLastCharFalseCheck() throws Exception {
         HandlerGameCities instance = new HandlerGameCities();
-        Character expResult = 'Е'; //если маленькая буква вернут все равно большую, чтобы сравнивать 
+        Character expResult = 'Е';
         Character result = instance.getLastChar("Москва");
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testGetLastCharCheckOtherChars() throws Exception {
+        HandlerGameCities instance = new HandlerGameCities();
+        Character expResult = 'Н';  
+        Character result = instance.getLastChar("Рязань");
+        assertEquals(expResult, result);
+
+        expResult = 'Н';  
+        result = instance.getLastChar("Рязаны");
+        assertEquals(expResult, result);
+        
+        expResult = 'Н';  
+        result = instance.getLastChar("Рязанъ");
+        assertEquals(expResult, result);
+        
+        expResult = 'И';  
+        result = instance.getLastChar("Каменск-Уральский");
         assertEquals(expResult, result);
     }
 

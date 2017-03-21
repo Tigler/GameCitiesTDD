@@ -43,16 +43,29 @@ public class HandlerGameCitiesTest {
     public void testLoadCities() throws IOException {
         HandlerGameCities instance = new HandlerGameCities();
         ArrayList<String> result = null;
-        boolean flagEx=false;
-        try{
-           instance.loadCities("cities.txt");
-        }catch(IOException e){
-            flagEx=true;
+        boolean flagEx = false;
+        try {
+            instance.loadCities("cities.txt");
+        } catch (IOException e) {
+            flagEx = true;
         }
         assertFalse(flagEx);
         ArrayList<String> cities = instance.getCities();
         String city = cities.get(4);
         assertEquals(city, "Адлер");
+    }
+
+    @Test
+    public void testLoadCitiesException() throws IOException {
+        HandlerGameCities instance = new HandlerGameCities();
+        ArrayList<String> result = null;
+        boolean flagEx = false;
+        try {
+            instance.loadCities("cities1.txt");
+        } catch (IOException e) {
+            flagEx = true;
+        }
+        assertTrue(flagEx);
     }
 
 }

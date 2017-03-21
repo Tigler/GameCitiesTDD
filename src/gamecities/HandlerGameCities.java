@@ -34,12 +34,17 @@ public class HandlerGameCities {
             }
             in.close();
         } catch (IOException e) {
-           throw new IOException("Не удалось получить список городов");
+            throw new IOException("Не удалось получить список городов");
         }
     }
-    
-    public char getFirstChar(String city){
-        char firstChar = 0;
+
+    public char getFirstChar(String city) throws Exception {
+        char firstChar;
+        try {
+            firstChar = city.toUpperCase().charAt(0);
+        } catch (Exception e) {
+            throw new Exception("Не удалось извлечь первую букву слова");
+        }
         return firstChar;
     }
 

@@ -129,23 +129,23 @@ public class HandlerGameCitiesTest {
     @Test
     public void testGetLastCharCheckOtherChars() throws Exception {
         HandlerGameCities instance = new HandlerGameCities();
-        Character expResult = 'Н';  
+        Character expResult = 'Н';
         Character result = instance.getLastChar("Рязань");
         assertEquals(expResult, result);
 
-        expResult = 'Н';  
+        expResult = 'Н';
         result = instance.getLastChar("Рязаны");
         assertEquals(expResult, result);
-        
-        expResult = 'Н';  
+
+        expResult = 'Н';
         result = instance.getLastChar("Рязанъ");
         assertEquals(expResult, result);
-        
-        expResult = 'И';  
+
+        expResult = 'И';
         result = instance.getLastChar("Каменск-Уральский");
         assertEquals(expResult, result);
     }
-    
+
     @Test
     public void testGetLastCharExceptionEmptyCity() throws Exception {
         HandlerGameCities instance = new HandlerGameCities();
@@ -158,7 +158,7 @@ public class HandlerGameCitiesTest {
         }
         assertTrue(fladEx);
     }
-    
+
     @Test
     public void testGetLastCharExceptionNullCity() throws Exception {
         HandlerGameCities instance = new HandlerGameCities();
@@ -170,6 +170,22 @@ public class HandlerGameCitiesTest {
             fladEx = true;
         }
         assertTrue(fladEx);
+    }
+
+    @Test
+    public void testGetRandomCity() throws Exception {
+        System.out.println("getRandomCity");
+        HandlerGameCities instance = new HandlerGameCities();
+        instance.loadCities("cities.txt");
+        String result = instance.getRandomCity();
+        ArrayList<String> cities = instance.getCities();
+        boolean flagEq = false;
+        for (String city : cities) {
+            if (city.equals(result)) {
+                flagEq = true;
+            }
+        }
+        assertTrue(flagEq);
     }
 
 }

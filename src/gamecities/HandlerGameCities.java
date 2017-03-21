@@ -47,8 +47,8 @@ public class HandlerGameCities {
         }
         return firstChar;
     }
-    
-     public char getLastChar(String city) throws Exception {
+
+    public char getLastChar(String city) throws Exception {
         char last;
         try {
             int pos = city.length() - 1;
@@ -63,6 +63,11 @@ public class HandlerGameCities {
             throw new Exception("Не удалось извлечь последнюю букву слова");
         }
         return last;
+    }
+
+    public String getRandomCity() {
+        String randCity = null;
+        return randCity;
     }
 
 }

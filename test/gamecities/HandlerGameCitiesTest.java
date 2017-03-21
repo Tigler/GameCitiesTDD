@@ -145,5 +145,35 @@ public class HandlerGameCitiesTest {
         result = instance.getLastChar("Каменск-Уральский");
         assertEquals(expResult, result);
     }
+    
+    @Test
+    public void testGetLastCharExceptionEmptyCity() throws Exception {
+        System.out.println("getLastChar");
+        String city = "";
+        HandlerGameCities instance = new HandlerGameCities();
+        boolean fladEx = false;
+        try {
+            Character result = instance.getLastChar("");
+        } catch (Exception e) {
+            assertEquals(e.getMessage(), "Не удалось извлечь последнюю букву слова");
+            fladEx = true;
+        }
+        assertTrue(fladEx);
+    }
+    
+    @Test
+    public void testGetLastCharExceptionNullCity() throws Exception {
+        System.out.println("getLastChar");
+        String city = "";
+        HandlerGameCities instance = new HandlerGameCities();
+        boolean fladEx = false;
+        try {
+            Character result = instance.getLastChar(null);
+        } catch (Exception e) {
+            assertEquals(e.getMessage(), "Не удалось извлечь последнюю букву слова");
+            fladEx = true;
+        }
+        assertTrue(fladEx);
+    }
 
 }

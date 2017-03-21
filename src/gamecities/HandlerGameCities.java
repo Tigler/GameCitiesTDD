@@ -47,5 +47,11 @@ public class HandlerGameCities {
         }
         return firstChar;
     }
+    
+     public char getLastChar(String city) throws Exception {
+        char firstChar =0;
+        
+        return firstChar;
+    }
 
 }

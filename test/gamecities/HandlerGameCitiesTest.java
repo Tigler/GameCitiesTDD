@@ -109,5 +109,21 @@ public class HandlerGameCitiesTest {
         }
         assertTrue(fladEx);
     }
+    
+    @Test
+    public void testGetLastCharTrueCheck() throws Exception {
+        HandlerGameCities instance = new HandlerGameCities();
+        Character expResult = 'A'; //если маленькая буква вернут все равно большую, чтобы сравнивать 
+        Character result = instance.getLastChar("Москва");
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testGetLastCharFalseCheck() throws Exception {
+        HandlerGameCities instance = new HandlerGameCities();
+        Character expResult = 'Е'; //если маленькая буква вернут все равно большую, чтобы сравнивать 
+        Character result = instance.getLastChar("Москва");
+        assertEquals(expResult, result);
+    }
 
 }

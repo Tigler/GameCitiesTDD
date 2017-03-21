@@ -27,7 +27,15 @@ public class HandlerGameCities {
     }
 
     public void loadCities(String path) throws IOException {
-        
+        try {
+            final BufferedReader in = new BufferedReader(new FileReader(path));
+            for (String city; (city = in.readLine()) != null;) {
+                cities.add(city); // и сложим все имена в этот массив
+            }
+            in.close();
+        } catch (IOException e) {
+           throw new IOException("Не удалось получить список городов");
+        }
     }
 
 }
